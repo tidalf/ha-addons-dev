@@ -1,17 +1,22 @@
 {
   "name": "Hashicorp Vault Addon",
-  "version": "0.1",
+  "version": "2020.12.dev2729",
   "slug": "vault",
   "description": "Add-on that launch an Hashicorp Vault server",
   "url": "https://github.com/b46ha/ha-addon-vault",
-  "privileged": ["IPC_LOCK"],
+  "privileged": [
+    "IPC_LOCK"
+  ],
   "startup": "application",
   "boot": "auto",
   "ports": {
     "8200/tcp": 8200,
     "8201/tcp": null
   },
-  "map": ["config:rw", "ssl:rw"],
+  "map": [
+    "config:rw",
+    "ssl:rw"
+  ],
   "hassio_api": true,
   "hassio_role": "default",
   "webui": "[PROTO:enable_tls]://[HOST]:[PORT:8200]/",
@@ -23,7 +28,7 @@
     "raft_path": "/data/vault/raft",
     "disable_tls": false,
     "aws_unseal": false
-    },
+  },
   "schema": {
     "vault_api_addr": "str",
     "vault_cluster_addr": "str",
@@ -38,6 +43,11 @@
     "aws_secret_key": "str?",
     "aws_kms_key_id": "str?"
   },
-  "arch": ["amd64", "armhf", "i386" , "aarch64"],
-  "image": "b46ha/{arch}-hassio-vault"
+  "arch": [
+    "amd64",
+    "armhf",
+    "i386",
+    "aarch64"
+  ],
+  "image": "tidalf/{arch}-hassio-vault"
 }

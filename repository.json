@@ -1,5 +1,5 @@
 {
-  "name": "Hass.IO b46ha add-on repository",
-  "url": "https://github.com/b46ha/hassio-addons/",
+  "name": "Hass.IO Tidalf dev add-on repository",
+  "url": "https://github.com/tidalf/ha-addons-dev",
   "maintainer": "Tidalf <tidalf@ematome.com>"
 }

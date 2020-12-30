@@ -1,6 +1,6 @@
 {
   "name": "Hashicorp Vault Addon",
-  "version": "2020.12.dev3003",
+  "version": "2020.12.dev3004",
   "slug": "vault",
   "description": "Add-on that launch an Hashicorp Vault server",
   "url": "https://github.com/b46ha/ha-addon-vault",
@@ -58,5 +58,6 @@
     "armhf",
     "i386",
     "aarch64"
-  ]
+  ],
+  "image": "tidalf/{arch}-hassio-vault"
 }

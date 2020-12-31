@@ -58,5 +58,6 @@
     "armhf",
     "i386",
     "aarch64"
-  ]
+  ],
+  "image": "tidalf/{arch}-hassio-vault"
 }

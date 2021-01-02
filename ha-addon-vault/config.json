@@ -1,6 +1,6 @@
 {
   "name": "Hashicorp Vault Addon",
-  "version": "2021.01.dev0208",
+  "version": "2021.01.dev0209",
   "slug": "vault",
   "description": "Add-on that launch an Hashicorp Vault server",
   "url": "https://github.com/b46ha/ha-addon-vault",
@@ -26,6 +26,7 @@
     "tls_certificate": "/ssl/fullchain.pem",
     "tls_private_key": "/ssl/privkey.pem",
     "raft_path": "/data/vault/raft",
+    "unsafe_auto_init": "false",
     "node_id": "raft_node_1",
     "disable_tls": false,
     "auto_provision": false

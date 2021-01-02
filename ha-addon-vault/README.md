@@ -35,7 +35,7 @@ raft_path: /config/vault/raft
 unsafe_auto_init: true
 ```
 
-## Auto provisioning
+### Auto provisioning
 - You can enable initial config of the vault: It'll run a terraform config (it can be in changed in /config/vault/terraform)
 ```bash
 auto_provision: true
@@ -83,13 +83,13 @@ aws_unseal: false
 aws_unseal_downgrade: true
 ```
 
-## Enable the cluster
+### Enable the cluster
 Cluster listener addr is set to localhost by default. 
 
 Set it to a valid address through 'vault_cluster_addr' then enable the port forward for tcp/8201 (provide a value for the port)
 (it's untested, no automated setup for multi nodes for now)
 
-## Downgrading from keybase to unsafe local storage
+### Downgrading from keybase to unsafe local storage
 It's a bit tricky and those commands need to be exec outside of the addon container: 
 
 - Retrieve the needed values from the logs (keys_b64, encoded_root_token and adm.asc)
@@ -121,7 +121,7 @@ echo "then restart the addon, press enter when done"
 
 read a
 
-echo "$3" | base64 -d > pb2
+echo "$3" | base64 -d >> pb2
 vault operator unseal $(decrypt $1)
 
 echo "Sleep for elections"

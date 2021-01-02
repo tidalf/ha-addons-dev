@@ -20,11 +20,6 @@ Use the following repository (add it in the add-on store of the supervisor) :
 https://github.com/tidalf/ha-addons
 
 
-### Enable the cluster
-Cluster listener addr is set to localhost by default. 
-
-Set it to a valid address through 'vault_cluster_addr' then enable the port forward for tcp/8201 (provide a value for the port)
-
 ### Custom the configuration
 - You can use the vault_local_config variable (see https://hub.docker.com/_/vault)
 - The raft data is stored in /data/vault/raft, it'll be removed if you remove the addon. 
@@ -76,6 +71,12 @@ If you disable aws kms, you need to set the downgrade variable (at least for the
 aws_unseal: false
 aws_unseal_downgrade: true
 ```
+
+### Enable the cluster
+Cluster listener addr is set to localhost by default. 
+
+Set it to a valid address through 'vault_cluster_addr' then enable the port forward for tcp/8201 (provide a value for the port)
+(it's untested, no automated setup for multi nodes for now)
 
 ## Downgrading from keybase to unsafe local storage
 It's a bit tricky: 

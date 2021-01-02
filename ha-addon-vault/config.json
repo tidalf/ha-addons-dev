@@ -1,6 +1,6 @@
 {
   "name": "Hashicorp Vault Addon",
-  "version": "2021.01.dev0201",
+  "version": "2021.01.dev0202",
   "slug": "vault",
   "description": "Add-on that launch an Hashicorp Vault server",
   "url": "https://github.com/b46ha/ha-addon-vault",
@@ -45,6 +45,7 @@
     "disable_tls": "bool",
     "aws_unseal": "bool?",
     "aws_unseal_downgrade": "bool?",
+    "unsafe_downgrade": "bool?",
     "auto_provision": "bool",
     "provision_token": "str?",
     "vault_local_config": "str?",

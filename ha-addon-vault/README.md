@@ -76,3 +76,43 @@ If you disable aws kms, you need to set the downgrade variable (at least for the
 aws_unseal: false
 aws_unseal_downgrade: true
 ```
+
+## Downgrading from keybase to unsafe local storage
+It's a bit tricky: 
+
+- Retrieve the needed values from the logs (keys_b64 and encoded_root_token)
+- Unseal the vault using your keybase
+- Create a provisioning token
+- Set it in the config, restart
+- Start the rekeing using a backup
+- The script will retrieve the backup using the provisioning token above.
+
+```bash
+#!/usr/bin/env bash
+# $1 is the encrypted unseal key (from the logs)
+# $2 is the encrypted root key
+# $3 is the gpg key of the local unsafe storage
+
+decrypt () {
+  echo $1 | base64 -d | keybase pgp decrypt
+}
+
+vault operator unseal $(decrypt $1)
+
+vault login $(decrypt $2)
+vault token create -ttl=2h
+
+echo "copy this token in the setting \"provision_token:\""
+echo "and set unsafe_downgrade: true"
+echo "then restart the addon, press enter when done"
+pause
+
+echo "$3" | base64 -d > pb2
+vault operator unseal $(decrypt $1)
+nonce=$(vault operator rekey -format json -pgp-keys=pb2 -key-shares=1 -key-threshold=1 -init -backup | jq -r .nonce)
+vault operator rekey -nonce $nonce $(decrypt $1)
+```
+
+
+
+

@@ -1,6 +1,6 @@
 {
   "name": "Hashicorp Vault Addon",
-  "version": "fd8907f55cb9e4766b2878832674f672dc98517b",
+  "version": "d95cd8c1e1b1ccc8a52c4d9fa2e649b07950efc3",
   "slug": "vault",
   "description": "Add-on that launch an Hashicorp Vault server",
   "url": "https://github.com/b46ha/ha-addon-vault",

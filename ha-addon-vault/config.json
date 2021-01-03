@@ -9,9 +9,13 @@
   ],
   "startup": "application",
   "boot": "auto",
+  "ingress": true,
+  "ingress_port": 9080,
+  "ingress_entry": "/vault/",
   "ports": {
     "8200/tcp": 8200,
-    "8201/tcp": null
+    "8201/tcp": "raft port (Not required one local node)",
+    "9080/tcp": "nginx proxy (Not required w/Ingress)"
   },
   "map": [
     "config:rw",
@@ -19,7 +23,7 @@
   ],
   "hassio_api": true,
   "hassio_role": "default",
-  "webui": "[PROTO:enable_tls]://[HOST]:[PORT:8200]/",
+  "webui": "[PROTO:enable_tls]://[HOST]:[PORT:80]/",
   "options": {
     "vault_api_addr": "0.0.0.0:8200",
     "vault_cluster_addr": "https://127.0.0.1:8201",
@@ -60,6 +64,5 @@
     "armhf",
     "i386",
     "aarch64"
-  ],
-  "image": "tidalf/{arch}-hassio-vault"
+  ]
 }
